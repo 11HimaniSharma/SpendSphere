@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendSphere - My College Money Diary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#home" class="logo">SpendSphere<span>.</span></a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#add">Add entry</a>
+            <a href="#diary">My diary</a>
+            <a href="#plans">My plans</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="welcome" id="home">
+            <div>
+                <p class="eyebrow">MY COLLEGE MONEY DIARY</p>
+                <h1>Hey! Let's keep<br>track of your <span>money.</span></h1>
+                <p class="welcome-text">
+                    From canteen chai to college notes, keep a little
+                    record of where your pocket money goes.
+                </p>
+            </div>
+
+            <div class="welcome-note">
+                <p class="note-star">✳</p>
+                <p>A little tracking<br>never hurts!</p>
+                <span>— SpendSphere</span>
+            </div>
+        </section>
+
+        <section class="overview">
+            <div class="section-top">
+                <div>
+                    <p class="eyebrow">THE BIG PICTURE</p>
+                    <h2>My pocket money</h2>
+                </div>
+                <p id="todayDate" class="date-text"></p>
+            </div>
+
+            <div class="money-grid">
+                <div class="money-item main-money">
+                    <p>Money left</p>
+                    <h2 id="balance">₹0</h2>
+                    <span>What I have available</span>
+                </div>
+
+                <div class="money-item">
+                    <p>Money received</p>
+                    <h2 id="income">₹0</h2>
+                    <span class="green-text">Pocket money + other income</span>
+                </div>
+
+                <div class="money-item">
+                    <p>Money spent</p>
+                    <h2 id="expense">₹0</h2>
+                    <span class="orange-text">All recorded expenses</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="middle-area">
+
+            <div class="add-section" id="add">
+                <p class="eyebrow">WRITE IT DOWN</p>
+                <h2>Add a new entry</h2>
+                <p class="muted">
+                    Spent something today? Got pocket money?
+                    Add it here.
+                </p>
+
+                <form id="transactionForm">
+
+                    <label for="title">What was it for?</label>
+                    <input type="text" id="title"
+                        placeholder="e.g. Chai and samosa" required>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="amount">Amount (₹)</label>
+                            <input type="number" id="amount"
+                                placeholder="100" min="0.01"
+                                step="0.01" required>
+                        </div>
+
+                        <div>
+                            <label for="type">Entry type</label>
+                            <select id="type">
+                                <option value="expense">I spent</option>
+                                <option value="income">I received</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="category">Where does it belong?</label>
+                    <select id="category">
+                        <option>Canteen / Snacks</option>
+                        <option>Mess</option>
+                        <option>Travel / Auto</option>
+                        <option>Stationery</option>
+                        <option>Photocopies / Notes</option>
+                        <option>Shopping</option>
+                        <option>Mobile Recharge</option>
+                        <option>Outings</option>
+                        <option>Hostel Essentials</option>
+                        <option>Other</option>
+                    </select>
+
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+
+                    <button type="submit" class="primary-button">
+                        Add to my diary +
+                    </button>
+                </form>
+            </div>
+
+            <div class="plans-section" id="plans">
+                <p class="eyebrow">A LITTLE PLANNING</p>
+                <h2>My weekly limit</h2>
+                <p class="muted">
+                    Set how much you want to spend in a week.
+                </p>
+
+                <label for="weeklyLimit">Weekly spending limit (₹)</label>
+                <input type="number" id="weeklyLimit"
+                    placeholder="e.g. 1000" min="0.01">
+
+                <button type="button" id="saveLimit" class="secondary-button">
+                    Save my limit
+                </button>
+
+                <div class="week-details">
+                    <div>
+                        <span>Spent this week</span>
+                        <strong id="weekSpent">₹0</strong>
+                    </div>
+
+                    <div>
+                        <span>Money remaining</span>
+                        <strong id="weekRemaining">₹0</strong>
+                    </div>
+                </div>
+
+                <div class="progress-track">
+                    <div id="weekProgress" class="progress-bar"></div>
+                </div>
+
+                <p id="weekMessage" class="small-message">
+                    Set a weekly limit to start.
+                </p>
+
+                <div class="line"></div>
+
+                <p class="eyebrow">SOMETHING TO LOOK FORWARD TO</p>
+                <h2>My savings goal</h2>
+                <p class="muted">
+                    Saving for something? Keep a little progress here.
+                </p>
+
+                <label for="goalName">What are you saving for?</label>
+                <input type="text" id="goalName"
+                    placeholder="e.g. A new pair of headphones">
+
+                <label for="goalTarget">Target amount (₹)</label>
+                <input type="number" id="goalTarget"
+                    placeholder="5000" min="0.01">
+
+                <label for="goalSaved">Already saved (₹)</label>
+                <input type="number" id="goalSaved"
+                    placeholder="500" min="0">
+
+                <button type="button" id="saveGoal" class="secondary-button">
+                    Save my goal
+                </button>
+
+                <div class="goal-box">
+                    <h3 id="goalTitle">My little goal</h3>
+                    <p id="goalDetails">Your savings progress will appear here.</p>
+                    <div class="progress-track">
+                        <div id="goalProgress" class="goal-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="diary-section" id="diary">
+            <div class="section-top">
+                <div>
+                    <p class="eyebrow">THE DAILY RECORD</p>
+                    <h2>My spending diary</h2>
+                </div>
+                <p class="diary-caption">Every rupee has a story.</p>
+            </div>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>What happened?</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="transactionList"></tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage" class="empty-message">
+                Nothing here yet. Add your first entry and your diary will start growing!
+            </p>
+        </section>
+
+        <section class="category-section">
+            <p class="eyebrow">JUST CURIOUS</p>
+            <h2>Where am I spending the most?</h2>
+            <p class="muted">
+                A simple breakdown of your recorded expenses.
+            </p>
+
+            <div id="categoryBreakdown" class="category-list"></div>
+        </section>
+
+        <footer>
+            <a href="#home" class="logo">SpendSphere<span>.</span></a>
+            <p>Made with a little planning and a lot of chai.</p>
+            <span>My College Money Diary · Student Project</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
